@@ -1,7 +1,7 @@
 ﻿using BlueRain;
 using System;
 
-namespace ColdWarZombieTrainer.Features
+namespace Zombies.Features
 {
     class CamoFeatures
     {

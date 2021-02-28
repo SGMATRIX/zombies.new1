@@ -1,7 +1,7 @@
 ﻿using BlueRain;
 using System;
 
-namespace ColdWarZombieTrainer.Features
+namespace Zombies.Features
 {
     class SpawnMoney
     {
@@ -16,7 +16,10 @@ namespace ColdWarZombieTrainer.Features
 
         public void InfiniteMoney()
         {
-            _memory.Write<int>(true, 30000, _baseAddress + Offsets.PlayerBase, (IntPtr)Offsets.PlayerCompPtr.Points);
+            for (int i = 0; i < 9; i++)
+            {
+               _memory.Write(true, 80000000, _baseAddress + Offsets.PlayerBase, (IntPtr) (Offsets.PlayerCompPtr.ArraySizeOffset* i) + Offsets.PlayerCompPtr.Points);
+            }
         }
     }
 }

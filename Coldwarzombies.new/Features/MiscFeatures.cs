@@ -1,10 +1,10 @@
 ﻿using BlueRain;
-using ColdWarZombieTrainer.Utils;
+using Zombies.Utils;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace ColdWarZombieTrainer.Features
+namespace Zombies.Features
 {
     class MiscFeatures
     {
@@ -225,8 +225,11 @@ namespace ColdWarZombieTrainer.Features
         {
             if (KeyUtils.GetKeyDown(0x1))
             {
-                _memory.Write(false, -1, _baseAddress + Offsets.PlayerBase, (IntPtr)Offsets.PlayerCompPtr.RapidFire1);
-                _memory.Write(false, -1, _baseAddress + Offsets.PlayerBase, (IntPtr)Offsets.PlayerCompPtr.RapidFire2);
+                for (int i = 0; i < 7; i++)
+                {
+                    _memory.Write(false, -1, _baseAddress + Offsets.PlayerBase, (IntPtr)(Offsets.PlayerCompPtr.ArraySizeOffset * i) + Offsets.PlayerCompPtr.RapidFire1);
+                    _memory.Write(false, -1, _baseAddress + Offsets.PlayerBase, (IntPtr)(Offsets.PlayerCompPtr.ArraySizeOffset * i) + Offsets.PlayerCompPtr.RapidFire2);
+                }
             }
         }
 
@@ -234,16 +237,20 @@ namespace ColdWarZombieTrainer.Features
         {
             if (!_critOnly)
             {
-                //wtf is this shite, copy pate much?
-                _critOnly = !_critOnly;
-                _memory.Write(false, -1, _baseAddress + Offsets.PlayerBase, (IntPtr)Offsets.PlayerCompPtr.CritKill1);
-                _memory.Write(false, -1, _baseAddress + Offsets.PlayerBase, (IntPtr)Offsets.PlayerCompPtr.CritKill2);
-                _memory.Write(false, -1, _baseAddress + Offsets.PlayerBase, (IntPtr)Offsets.PlayerCompPtr.CritKill3);
-                _memory.Write(false, -1, _baseAddress + Offsets.PlayerBase, (IntPtr)Offsets.PlayerCompPtr.CritKill4);
-                _memory.Write(false, -1, _baseAddress + Offsets.PlayerBase, (IntPtr)Offsets.PlayerCompPtr.CritKill5);
-                _memory.Write(false, -1, _baseAddress + Offsets.PlayerBase, (IntPtr)Offsets.PlayerCompPtr.CritKill6);
-                _memory.Write(false, -1, _baseAddress + Offsets.PlayerBase, (IntPtr)Offsets.PlayerCompPtr.CritKill7);
-                _memory.Write(false, -1, _baseAddress + Offsets.PlayerBase, (IntPtr)Offsets.PlayerCompPtr.CritKill8);
+                for (int i = 0; i < 8; i++)
+
+                {
+                    //wtf is this shite, copy pate much?
+                    _critOnly = !_critOnly;
+                    _memory.Write(false, -1, _baseAddress + Offsets.PlayerBase, (IntPtr)(Offsets.PlayerCompPtr.ArraySizeOffset * i) + Offsets.PlayerCompPtr.CritKill1);
+                    _memory.Write(false, -1, _baseAddress + Offsets.PlayerBase, (IntPtr)(Offsets.PlayerCompPtr.ArraySizeOffset * i) + Offsets.PlayerCompPtr.CritKill2);
+                    _memory.Write(false, -1, _baseAddress + Offsets.PlayerBase, (IntPtr)(Offsets.PlayerCompPtr.ArraySizeOffset * i) + Offsets.PlayerCompPtr.CritKill3);
+                    _memory.Write(false, -1, _baseAddress + Offsets.PlayerBase, (IntPtr)(Offsets.PlayerCompPtr.ArraySizeOffset * i) + Offsets.PlayerCompPtr.CritKill4);
+                    _memory.Write(false, -1, _baseAddress + Offsets.PlayerBase, (IntPtr)(Offsets.PlayerCompPtr.ArraySizeOffset * i) + Offsets.PlayerCompPtr.CritKill5);
+                    _memory.Write(false, -1, _baseAddress + Offsets.PlayerBase, (IntPtr)(Offsets.PlayerCompPtr.ArraySizeOffset * i) + Offsets.PlayerCompPtr.CritKill6);
+                    _memory.Write(false, -1, _baseAddress + Offsets.PlayerBase, (IntPtr)(Offsets.PlayerCompPtr.ArraySizeOffset * i) + Offsets.PlayerCompPtr.CritKill7);
+                    _memory.Write(false, -1, _baseAddress + Offsets.PlayerBase, (IntPtr)(Offsets.PlayerCompPtr.ArraySizeOffset * i) + Offsets.PlayerCompPtr.CritKill8);
+                }
             }
             else
             {

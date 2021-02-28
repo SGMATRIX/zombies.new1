@@ -6,7 +6,7 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Media;
 
-namespace ColdWarZombieTrainer
+namespace Zombies
 {
     public partial class MainWindow : Window
     {
@@ -67,6 +67,8 @@ namespace ColdWarZombieTrainer
             TeleportZombieCheckBox.IsEnabled = true;
             TeleportZombiePositionCheckBox.IsEnabled = true;
             SetPositionbutton.IsEnabled = true;
+            XpModiferCheckBox.IsEnabled = true;
+            GunXpModiferCheckBox.IsEnabled = true;
             ChangeWeaponButton.IsEnabled = true;
             OneShotGold.IsEnabled = true;
         }
@@ -196,7 +198,31 @@ namespace ColdWarZombieTrainer
             _console.WriteLine("Teleport Zombies Disabled", Brushes.Green);
             _teleportZombies = false;
         }
-     
+
+        private void XpModiferEnabled(object sender, RoutedEventArgs e)
+        {
+            _console.WriteLine("XP Multiplier enabled", Brushes.Green);
+            _core.XpMultiplier.PlayerXpMultiplier((float)XpModiferSlider.Value);
+        }
+
+        private void XpModiferDisabled(object sender, RoutedEventArgs e)
+        {
+            _console.WriteLine("XP Multiplier disabled", Brushes.Green);
+            _core.XpMultiplier.PlayerXpMultiplier(1f);
+        }
+
+        private void GunXpModiferEnabled(object sender, RoutedEventArgs e)
+        {
+            _console.WriteLine("Gun XP Multiplier Started", Brushes.Green);
+            _core.XpMultiplier.GunXpMultiplier((float)GunModiferSlider.Value);
+        }
+
+        private void GunXpModiferDisabled(object sender, RoutedEventArgs e)
+        {
+            _console.WriteLine("XP Multiplier disabled", Brushes.Green);
+            _core.XpMultiplier.GunXpMultiplier(1f);
+        }
+
         private void InfraredEnable(object sender, RoutedEventArgs e)
         {
             _console.WriteLine("Infrared enabled", Brushes.Green);

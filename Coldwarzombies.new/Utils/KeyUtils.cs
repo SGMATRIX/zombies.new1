@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 
-namespace ColdWarZombieTrainer.Utils
+namespace Zombies.Utils
 {
     //Credits too who ever made this.
     public class KeyUtils

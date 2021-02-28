@@ -1,10 +1,10 @@
 ﻿using BlueRain;
-using ColdWarZombieTrainer.Features;
+using Zombies.Features;
 using System;
 using System.Diagnostics;
 using System.Windows.Media;
 
-namespace ColdWarZombieTrainer
+namespace Zombies
 {
     class Core
     {
@@ -13,6 +13,7 @@ namespace ColdWarZombieTrainer
         public InfiniteAmmo InfiniteAmmo { get; private set; }
         public SpawnMoney MoneyHack { get; private set; }
         public ZombieHack ZombieHack { get; private set; }
+        public XpMultiplier XpMultiplier { get; private set; }
         public MiscFeatures MiscFeatures { get; private set; }
         public CamoFeatures CamoFeatures { get; private set; }
 
@@ -49,6 +50,7 @@ namespace ColdWarZombieTrainer
                 MoneyHack = new SpawnMoney(_baseAddress, _memory);
                 MiscFeatures = new MiscFeatures(_baseAddress, _memory);
                 ZombieHack = new ZombieHack(_playerPedPtr, _zmBotListBase, _zmGlobalBase, _memory);
+                XpMultiplier = new XpMultiplier(_baseAddress, _memory);
                 CamoFeatures = new CamoFeatures(_baseAddress, _zmBotListBase, _zmGlobalBase, _memory);
 
                 return true;

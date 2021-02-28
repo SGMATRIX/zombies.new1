@@ -1,4 +1,4 @@
-﻿namespace ColdWarZombieTrainer.Enums
+﻿namespace Zombies.Enums
 {
     enum WeaponIds
     {

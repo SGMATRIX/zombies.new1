@@ -1,17 +1,17 @@
-﻿<Window x:Class="ColdWarZombieTrainer.MainWindow"
+﻿<Window x:Class="Zombies.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"    
-        xmlns:local="clr-namespace:ColdWarZombieTrainer"
+        xmlns:local="clr-namespace:Zombies"
         mc:Ignorable="d"
-        Title="Calculator" Height="638" Width="827"
+        Title="Zombies" Height="638" Width="827"
         FontWeight="Bold" Foreground="#FF4BFF00"
         ResizeMode="NoResize">
 
     <Grid Loaded="OnLoaded" Margin="0,0,0,-1">
         <Grid.Background>
-            <ImageBrush Stretch="None" TileMode="None" Opacity="0.5" ImageSource="/PikPng.com_sexy-anime-girl-png_5745364.png">
+            <ImageBrush Stretch="None" TileMode="None" Opacity="0.5" ImageSource="5745364.png">
                 <ImageBrush.RelativeTransform>
                     <TransformGroup>
                         <ScaleTransform CenterY="0.5" CenterX="0.5"/>
@@ -80,13 +80,14 @@
             <CheckBox Grid.Column="0" Content="God Mode" Name="GodModeCheckBox" HorizontalAlignment="Left"  VerticalAlignment="Center" Checked="GodModeEnable" Unchecked="GodModeDisable" Height="16" Margin="10,0,0,0" IsEnabled="False" FontWeight="Bold" FontStyle="Normal" Foreground="#FF4BFF00" Width="198"/>
             <CheckBox Grid.Row="1" Grid.Column="0" Content="Speed Hack" Name="SpeedHackCheckBox" HorizontalAlignment="Left"  VerticalAlignment="Center" Checked="SpeedHackEnabled" Unchecked="SpeedHackDisable" Height="16" Margin="10,0,0,0" IsEnabled="False" FontWeight="Bold" Foreground="#FF4BFF00" Width="198"/>
             <Slider Grid.Column="1" Name="SpeedHackValueSlider" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0" Maximum="10" Minimum="1" Height="21" Background="{x:Null}" Orientation="Horizontal" TickPlacement="None" Margin="0,16,0,0" Grid.RowSpan="3"/>
-            <CheckBox Grid.Row="2" Grid.Column="0" Content="Infinite Money  " Name="MoneyHackCheckBox" HorizontalAlignment="Left" Width="198" Checked="InfiniteMoneyHack" Unchecked="InfiniteMoneyDisable" Margin="10,1,0,0" IsEnabled="False" Foreground="#FF4BFF00" FontWeight="Bold"/>
+            <CheckBox Grid.Row="2" Grid.Column="0" Content="Infinite Money  " Name="MoneyHackCheckBox" HorizontalAlignment="Left" Width="198" Checked="InfiniteMoneyHack" Unchecked="InfiniteMoneyDisable" Margin="10,1,0,16" IsEnabled="False" Foreground="#FF4BFF00" FontWeight="Bold" UseLayoutRounding="False" Grid.RowSpan="2">
+            </CheckBox>
             <CheckBox Grid.Row="3" Grid.Column="0" Content="Infinite Ammo" Name="InfiniteAmmoCheckBox"  HorizontalAlignment="Left"  VerticalAlignment="Center" Width="198" Checked="InfiniteAmmoEnable" Unchecked="InfiniteAmmoDisable" Height="16" Margin="10,0,0,0" IsEnabled="False" FontWeight="Bold" Foreground="#FF4BFF00"/>
             <CheckBox Grid.Row="6" Grid.Column="0" Content="Rapid Fire" Name="RapidFireCheckBox"  VerticalAlignment="Center" Checked="RapidFireEnabled" Unchecked="RapidFireDisable" IsEnabled="False" FontWeight="Bold" Foreground="#FF4BFF00" Height="16" Margin="10,0,0,0"/>
             <CheckBox Grid.Row="7" Grid.Column="0" Content="Always Crit / Headshot Only" Name="AlwaysCritCheckBox" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0" Checked="HeadShotOnlyEnabled" Unchecked="HeadShotOnlyDisable" IsEnabled="False" FontWeight="Bold" Foreground="#FF4BFF00" Width="198" Height="16"/>
             <CheckBox x:Name="ThermalVisonCheckBox" Grid.Row="8" Grid.Column="0" Content="Thermal Vision" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="10,0,0,0" Checked="InfraredEnable" Unchecked="InfraredDisable" IsEnabled="False" FontWeight="Bold" Foreground="#FF4BFF00" Width="198" Height="16"/>
             <CheckBox x:Name="AutoSwitchWeaponCheckBox" Grid.Row="9" Grid.Column="0" Content="Auto Switch Weapon." HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0" IsEnabled="False" Checked="AutoSwitchEnable" Unchecked="AutoSwitchDisable" FontWeight="Bold" Foreground="#FF4BFF00" Width="198" Height="16"/>
-            <CheckBox x:Name="OneShotGold" Grid.Row="10" Grid.Column="0" Content="One Shot Gold ( Not Implemented )" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0" IsEnabled="False" Checked="OneShotGoldEnabled" Unchecked="OneShotGoldDisabled" FontWeight="Bold" Foreground="#FF4BFF00" Width="224" Height="16" Grid.ColumnSpan="2"/>
+            <CheckBox x:Name="OneShotGold" Grid.Row="10" Grid.Column="0" Content="One Shot Gold ( Not Implemented )" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0" IsEnabled="False" Checked="OneShotGoldEnabled" Unchecked="OneShotGoldDisabled" FontWeight="Bold" Foreground="#FF4BFF00" Width="224" Height="16" Grid.ColumnSpan="2" SnapsToDevicePixels="True"/>
             <Button Grid.Row="1" Grid.Column="2" Height="25px" Width="100px"  Content="Set Weapon" HorizontalAlignment="Left" VerticalAlignment="Center" Name="ChangeWeaponButton" Click="ChangeWeaponButton_Click" IsEnabled="False" Foreground="#FF4BFF00" FontWeight="Bold" Margin="118,0,0,0"/>
             <ComboBox Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" Name="WeaponIdComboBox" Foreground="#FF4BFF00" FontWeight="Bold" Height="22"/>
             <Label Grid.Row="1" Grid.Column="2"  Content="Weapon: MyWeapon" Name="MyWeaponLabel" Foreground="#FF4BFF00" FontWeight="Bold" Margin="118,13,132,12" Grid.RowSpan="3" Grid.ColumnSpan="2"/>
@@ -117,14 +118,20 @@
                 <ColumnDefinition Width="141*"/>
             </Grid.ColumnDefinitions>
 
-            <CheckBox Grid.Column="0" Content="Instant Kill (1hp zombies)" x:Name="InstantKillCheckBox"  VerticalAlignment="Top" Checked="InstantKillEnable" Unchecked="InstantKillDisable" Height="16" IsEnabled="False" FontWeight="Bold" Foreground="#FF4BFF00" Margin="10,-1,0,0" Grid.ColumnSpan="15"/>
+            <CheckBox Grid.Column="0" Content="Instant Kill (1hp zombies)" x:Name="InstantKillCheckBox"  VerticalAlignment="Center" Checked="InstantKillEnable" Unchecked="InstantKillDisable" Height="16" IsEnabled="False" FontWeight="Bold" Foreground="#FF4BFF00" Margin="10,0,210,0" Grid.ColumnSpan="16"/>
             <CheckBox Content="Teleport Zombies Too Crosshair" Name="TeleportZombieCheckBox" HorizontalAlignment="Left"  VerticalAlignment="Center" Checked="TeleportZombiesEnabled" Unchecked="TeleportZombiesDisable" Height="16" IsEnabled="False" FontWeight="Bold" Foreground="#FF4BFF00" Width="198" Grid.Row="1" Margin="10,0,0,0"/>
             <CheckBox Content="Teleport Zombies Too Position" Name="TeleportZombiePositionCheckBox" HorizontalAlignment="Left"  VerticalAlignment="Center" Checked="TeleportZombiesPosEnabled" Unchecked="TeleportZombiesPosDisabled" Height="16" IsEnabled="False" FontWeight="Bold" Foreground="#FF4BFF00" Width="198" Grid.Row="2" Margin="10,0,0,0"/>
-            <Button x:Name="SetPositionbutton" Grid.Column="12" Height="20" Width="80"  Content="Set Position" HorizontalAlignment="Left" VerticalAlignment="Center" Click="SetPosition" IsEnabled="False" Foreground="#FF4BFF00" FontWeight="Bold" Grid.ColumnSpan="3" Grid.Row="1"/>
-            <Label Grid.Column="14" Name="PositionLabel" Content="Set Position: [0,0,0]" Foreground="#FF4BFF00" FontWeight="Bold" Margin="89,3,89,1"/>
+            <Button x:Name="SetPositionbutton" Width="80"  Content="Set Position" HorizontalAlignment="Right" Click="SetPosition" IsEnabled="False" Foreground="#FF4BFF00" FontWeight="Bold" Grid.ColumnSpan="15" Grid.Row="1" Margin="0,14,284,0" RenderTransformOrigin="0.515,0.375" Grid.RowSpan="2" Height="19" VerticalAlignment="Top"/>
+            <Label Grid.Column="14" Name="PositionLabel" Content="Set Position: [0,0,0]" Foreground="#FF4BFF00" FontWeight="Bold" Margin="154,6,24,-2" Grid.Row="2"/>
+
+            <CheckBox Content="XP Modifier" Name="XpModiferCheckBox" HorizontalAlignment="Left" VerticalAlignment="Top"  Checked="XpModiferEnabled" Unchecked="XpModiferDisabled" IsEnabled="False" Foreground="#FF3AFF00" FontWeight="Bold" Height="16" Width="88" Margin="224,-110,0,0" Grid.ColumnSpan="15"/>
+            <Slider Name="XpModiferSlider"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="358" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0" Maximum="1000" Minimum="1" Height="22" Orientation="Horizontal" TickPlacement="None" Margin="108,-113,0,0" Grid.ColumnSpan="2" Grid.Column="14"/>
+
+            <CheckBox Grid.Column="0" Content="Weapon XP Modifier" Name="GunXpModiferCheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="198,-81,0,0" Checked="GunXpModiferEnabled" Unchecked="GunXpModiferDisabled" IsEnabled="False" Foreground="#FF3AFF00" FontWeight="Bold" Height="18" Width="140" Grid.ColumnSpan="15"/>
+            <Slider Name="GunModiferSlider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="331" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0" Maximum="1000" Minimum="1" Height="22" Orientation="Horizontal" TickPlacement="None" Margin="111,-81,0,0" Grid.ColumnSpan="2" Grid.Column="14"/>
         </Grid>
 
-        <Grid Width="auto" Height="225" Grid.Row="6" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.ColumnSpan="2" Margin="23,101,0,0">
+        <Grid Width="auto" Height="225" Grid.Row="6" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.ColumnSpan="2" Margin="24,89,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="106*"/>
                 <ColumnDefinition Width="675*"/>
@@ -148,6 +155,6 @@
             Background="#FF2D2D2D" 
             ShowsPreview="true"
             Width="auto"
-            Height="2" Margin="0,54,-1,0" Grid.ColumnSpan="2"/>
+            Height="2" Margin="0,62,-1,0" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>

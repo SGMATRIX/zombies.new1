@@ -1,9 +1,9 @@
 ﻿using BlueRain;
-using ColdWarZombieTrainer.Utils;
+using Zombies.Utils;
 using System;
 using System.Numerics;
 
-namespace ColdWarZombieTrainer.Features
+namespace Zombies.Features
 {
     class ZombieHack
     {

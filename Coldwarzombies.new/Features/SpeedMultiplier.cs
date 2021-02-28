@@ -1,7 +1,7 @@
 ﻿using BlueRain;
 using System;
 
-namespace ColdWarZombieTrainer.Features
+namespace Zombies.Features
 {
     class SpeedMultiplier
     {
@@ -16,7 +16,10 @@ namespace ColdWarZombieTrainer.Features
 
         public void SetSpeed(float speed)
         {
-            _memory.Write(false, speed, _baseAddress + Offsets.PlayerBase, (IntPtr)Offsets.PlayerCompPtr.RunSpeed);
+            for (int i = 0; i < 10; i++)
+            {
+                _memory.Write(false, speed, _baseAddress + Offsets.PlayerBase, (IntPtr)(Offsets.PlayerCompPtr.ArraySizeOffset * i) + Offsets.PlayerCompPtr.RunSpeed);
+            }
         }
 
     }

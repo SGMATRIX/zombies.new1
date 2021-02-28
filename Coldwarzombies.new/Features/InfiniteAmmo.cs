@@ -1,12 +1,13 @@
 ﻿using BlueRain;
 using System;
 
-namespace ColdWarZombieTrainer.Features
+namespace Zombies.Features
 {
     class InfiniteAmmo
     {
         private IntPtr _baseAddress;
         private NativeMemory _memory;
+
         public InfiniteAmmo(IntPtr baseAddress, NativeMemory memory)
         {
             _baseAddress = baseAddress;
@@ -15,9 +16,9 @@ namespace ColdWarZombieTrainer.Features
 
         public void DoInfiniteAmmo()
         {
-            for (int i = 1; i < 6; i++)
+            for (int i = 0; i < 6; i++)
             {
-                _memory.Write(false, 5, _baseAddress + Offsets.PlayerBase, (IntPtr)Offsets.PlayerCompPtr.Ammo + (i * 0x4));
+                _memory.Write(false, 50, _baseAddress + Offsets.PlayerBase, (IntPtr)(Offsets.PlayerCompPtr.ArraySizeOffset * i) + Offsets.PlayerCompPtr.Ammo);
             }
         }
     }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ColdWarZombieTrainer.Utils
+namespace Zombies.Utils
 {
     class MathUtils
     {

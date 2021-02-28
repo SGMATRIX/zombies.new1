@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace ColdWarZombieTrainer
+namespace Zombies
 {
     /// <summary>
     /// Interaction logic for App.xaml
